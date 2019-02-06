@@ -13,13 +13,16 @@ const mapStateToProps = state => {
 }
 
 class ArticleView extends Component {
+    constructor(props){
+        super(props);
+        this.props.getArticle(this.props.match.params.id)
+
+    }
 
     componentDidMount(){
         document.body.className = 'posts show'
     }
-    componentWillMount(){
-        this.props.getArticle(this.props.match.params.id)
-    }
+  
     componentWillUnmount(){
         document.body.className = '';
     }
